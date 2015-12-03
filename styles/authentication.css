@@ -1,0 +1,118 @@
+body {
+    padding: 15px 20px 20px 15px;
+    box-sizing: border-box;
+    height: 100%;
+}
+.hdrFtr {
+    height: 60px;
+    border: 2px solid #444444;
+    border-radius: 6px;
+    padding: 10px 30px;
+    background-color: #000099;
+    color: #98FF14;
+    box-sizing: border-box;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: cursive;
+}
+.hdrFtr .chooseAppLink {
+    margin-right: 50px;
+}
+header.hdrFtr {
+    margin: 0 0 20px 0;
+}
+footer.hdrFtr {
+    margin: 20px 0 0 0;
+}
+.dashboard {
+    box-sizing: border-box;
+}
+.dashboard .login-form-container,
+.dashboard .register-form-container {
+    border: 3px solid #000099;
+    border-radius: 6px;
+    padding: 10px 20px;
+}
+.dashboard .login-form-container .registerLink,
+.dashboard .register-form-container .registerLink,
+.dashboard .login-form-container .logInLink,
+.dashboard .register-form-container .logInLink {
+    font-size: 15px;
+    margin-top: 20px;
+}
+.dashboard .appLauncherContainer {
+    font-size: 25px;
+}
+.dashboard .appLauncherContainer .appLauncherImageContainer {
+    width: 200px;
+    cursor: pointer;
+}
+.dashboard .appLauncherContainer .appLauncherImageContainer .appLauncherImage {
+    width: 100%;
+}
+.dashboard .appLauncherContainer .appLauncherImageContainer.disabled {
+    cursor: auto;
+    opacity: 0.3;
+}
+.backGainsBoro {
+    background-color: #dcdcdc;
+}
+.border2Solid {
+    border: 2px solid;
+}
+.backGray {
+    background-color: gray;
+}
+.noFloat {
+    float: none;
+}
+.backBlue {
+    background-color: blue;
+}
+.msgDiv {
+    height: 300px;
+    overflow-y: auto;
+}
+.sender {
+    background-color: lightblue;
+}
+.receiver {
+    background-color: lightgray;
+}
+.fullWIdth {
+    width: 100%;
+}
+.border1Solid {
+    border: 1px solid;
+}
+ul {
+    list-style-type: none;
+}
+.minHeight {
+    min-height: 55px;
+}
+.minHeightCheckBox{
+    min-height: 70px;
+}
+.heightTH {
+    height: 385px;
+}
+/*.minHeightContainer{
+    min-height: 643px;
+}*/
+.fixPosition {
+    position: fixed;
+    bottom: 80;
+    width: inherit;
+}
+#javaHeader {
+    display: inline;
+}
+div.verticalCenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+.addMe {
+    cursor: pointer;
+}

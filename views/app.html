@@ -1,0 +1,34 @@
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="javascript:void(0)">Binaried Me Blog</a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav">
+                <li [ng-class]="tabs.Home" (click)="activateMe('Home')"> <a [router-link]="['/Home']">Home</a></li>
+                <li [ng-class]="tabs.Myprofile" (click)="activateMe('Myprofile')"> <a [router-link]="['/Myprofile']">My Profile</a></li>
+            </ul>
+        </div>
+        <div class="pull-right">
+           <ul class="nav navbar-nav">
+               <li>
+                   <a style="color : red;" href="/logout">Logout</a>
+               </li>
+           </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <edit-setting-panel></edit-setting-panel>
+    <div class="row">
+
+        <div class="col-sm-3">
+            <side-bar></side-bar>
+        </div>
+        <div class="col-sm-9">
+            <router-outlet></router-outlet>
+        </div>
+
+    </div>
+
+</div>

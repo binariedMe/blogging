@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Binaried Me</title>
+
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="binaried icon" type="image/x-ico" href="/favicon16-16.ico"/>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/node_modules/dist/summernote.css"/>
+
+
+</head>
+<body bgcolor="#008b8b" background="/green_cup.png">
+
+<my-app></my-app>
+</body>
+
+<script src="/node_modules/jquery/jquery.js"></script>
+<script src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
+<script src="/node_modules/traceur/bin/traceur.js"></script>
+<script src="/node_modules/systemjs/dist/system.js"></script>
+<script src="/node_modules/angular2/bundles/angular2.dev.js"></script>
+
+<script src="/node_modules/angular2/bundles/router.dev.js"></script>
+<script src="/node_modules/angular2/bundles/http.dev.js"></script>
+
+<script src="/node_modules/dist/summernote.min.js"></script>
+<script>
+    System.config({
+        packages: {'scripts': {defaultExtension: 'js'}
+        }
+    });
+    System.import('scripts/app');
+
+</script>
+</html>

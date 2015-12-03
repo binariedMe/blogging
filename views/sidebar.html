@@ -1,0 +1,9 @@
+<div style="overflow-y: scroll auto">
+    <ul class="list-group">
+        <li class="list-group-item list-group-item-info"><span>Top blogs by Rohit</span></li>
+        <li *ng-for="#blog of currentBlog.blogList" class="list-group-item" [ng-class]="currentBlog.title == blog ? 'list-group-item-success' : 'list-group-item-default'">
+            <a href="javascript:void(0)" (click)="loadBlog(blog)">{{blog}}</a>
+        </li>
+    </ul>
+
+</div>

@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "noImplicitAny": true,
+        "removeComments": false,
+        "preserveConstEnums": true,
+		"emitDecoratorMetadata": true,
+        "sourceMap": true,
+		"listFiles": true,
+        "outDir" : "../scripts"
+    }
+
+}

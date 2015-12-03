@@ -1,0 +1,67 @@
+<div class="container dashboard">
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6 register-form-container">
+
+            <form class="form-horizontal" role="form" name="regForm" novalidate (submit)="register()" [ng-form-model]="registerForm">
+
+                <h1 class="text-center" style="margin-bottom: 20px">Please Enter The Information</h1>
+
+                <div class="form-group">
+
+                    <div class="row">
+                        <p class="col-sm-2"></p>
+                        <label for="email" class="col-sm-4">Username :</label>
+                        <div class="col-sm-5 minHeight" >
+                            <input ng-control="username" (keyup)="checkDuplicate()" class="form-control" type="email" name="email" id="email" placeholder="Your Username" required ng-change="checkDuplicate(formData.email)">
+                            <span class="text-danger" [hidden]="!duplicateUsernameFlag">Username already taken...</span>
+                            <span class="text-danger" [hidden]="!((registerForm.controls.username._touched || submitFlag) && registerForm.controls.username._status == 'INVALID')">Please enter a username...</span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <p class="col-sm-2"></p>
+                        <label for="password" class="col-sm-4">Password:</label>
+                        <div class="col-sm-5 minHeight">
+                            <input ng-control="password" class="form-control" type="password" name="password" id="password" placeholder="Password" required>
+                            <!--<span class="text-danger" [hidden]="!(registerForm.controls.password._touched && registerForm.controls.password._value && (registerForm.controls.password._value.length < 6))">Minimum password length : 6</span>-->
+                            <span class="text-danger" [hidden]="!((registerForm.controls.password._touched || submitFlag) && registerForm.controls.password._status == 'INVALID')">Please enter a password...</span>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <p class="col-sm-2"></p>
+                        <label for="confirm" class="col-sm-4">Confirm Password:</label>
+                        <div class="col-sm-5 minHeight">
+                            <input ng-control="confirmPassword" class="form-control" type="password" name="cnfPass" id="confirm" placeholder="Confirm Password" required>
+                            <span class="text-danger" [hidden]="!((registerForm.controls.confirmPassword._touched || submitFlag) && registerForm.controls.confirmPassword._value != registerForm.controls.password._value)">Confirm password doesn't match...</span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <p class="col-sm-4"></p>
+                        <div class="col-sm-7 minHeightCheckBox">
+                            <input ng-control="agreementFlag" class="checkbox-inline" type="checkbox" id="agreement" name="agreement">
+                            <label for="agreement">I accept&nbsp&nbsp</label><a href="javascript: void(0)" style="cursor:help" class="text-info">Terms and conditions</a><br>
+                            <span class="text-danger" [hidden]="!((registerForm.controls.agreementFlag._touched || submitFlag) && registerForm.controls.agreementFlag._value != true)">You must agree the terms and conditions to proceed...</span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <p class="col-sm-8"></p>
+                        <button type="submit" name="register" class="btn btn-primary">Register</button>
+                    </div>
+
+                </div>
+
+                <div class="row logInLink">
+                    <p class="col-sm-1"></p>
+                    Already Registered! <a [router-link]="['/Login']" class="text-success">Log In Here</a>
+                </div>
+
+            </form>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+</div>
