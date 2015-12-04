@@ -10,25 +10,29 @@
             </ul>
         </div>
         <div class="pull-right">
-           <ul class="nav navbar-nav">
-               <li>
-                   <a style="color : red;" href="/logout">Logout</a>
-               </li>
-           </ul>
+            <ul class="nav navbar-nav">
+                <li>
+                    <span style="color : green;">{{greetMe()}}&nbsp;&nbsp;&nbsp;&nbsp;<a style="color : red;" href="/logout">Logout</a></span>
+                </li>
+            </ul>
         </div>
     </div>
 </nav>
 <div class="container">
+
     <edit-setting-panel></edit-setting-panel>
-    <div class="row">
-
-        <div class="col-sm-3">
-            <side-bar></side-bar>
-        </div>
-        <div class="col-sm-9">
-            <router-outlet></router-outlet>
-        </div>
-
+    <br/>
+    <div class="row" style="padding: 10px;background-color: #FFF; border-top: 2px solid #808080; height: 100%;">
+            <div class="col-sm-3">
+                <side-bar></side-bar>
+            </div>
+            <div class="col-sm-7">
+                <router-outlet></router-outlet>
+            </div>
+            <div class="col-sm-2">
+<h5 style="height: 100%">Comments : </h5>
+            </div>
     </div>
+</div>
 
 </div>

@@ -33,7 +33,7 @@ app.use(session({
 app.use(function(req, res, next) {
     if (req.session && req.session.user) {
 
-        if(req.session.user.username == 'rohit')
+        if(req.session.user.useraccess == 'admin')
             req.useraccess = 'admin';
         else req.useraccess = 'user';
         req.user = req.session.user;
@@ -58,7 +58,7 @@ app.post('/register', function(req, res){
     var username = req.body.username;
     var password = req.body.password;
     if(credentials[username] == undefined){
-        credentials[username] = {name : username, password : password};
+        credentials[username] = {name : username, password : password, useraccess : 'user'};
 
         writeCredentials();
         res.send({status : true, message : "Registration Successful"});
@@ -81,7 +81,7 @@ app.post('/login', function(req, res) {
     }
     else if(credentials[username].password == password)
     {
-        req.session.user = {username : username,password : password};
+        req.session.user = {username : username,password : password, useraccess : credentials[username].useraccess};
         res.send({status : true, message : "Login Successfull! Redirecting you in a while..."});
         //res.redirect('/test');
     }
@@ -148,6 +148,12 @@ app.get('/', requireLogin, function(req, res){
     res.sendFile("index.html", {"root" : "../"})
 });
 
+app.get('/getusername', function(req, res){
+    if(req.user){
+        res.send({ username : req.user.username, loginFlag : true});
+    }
+    else res.send({useername : "Guest User", loginFlag : false});
+});
 
 app.get('/getTitles', requireLogin, function(req, res){
     var list = fs.readdirSync('../views/blogs');

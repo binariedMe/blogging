@@ -12,6 +12,8 @@ import {EditorService} from 'scripts/editorService';
 import {CurrentBlog} from 'scripts/currentBlog';
 import {HttpService} from 'scripts/httpService';
 import {EditSettingPanel} from 'scripts/editSettingPanel';
+import {User} from 'scripts/user';
+import {Util} from 'scripts/util';
 
 
 
@@ -31,19 +33,27 @@ import {EditSettingPanel} from 'scripts/editSettingPanel';
 
 class testClass{
     tabs;
-    constructor(){
+    greetingArray = ["Howdy, ", "Welcome, ", "What's up, ", "High five, ", "Good Morning ", "Hey, "];
+    constructor(public httpService: HttpService, public user : User, public util : Util){
         this.tabs = [{'Home' : 'active', 'Myprofile' : ''}];
         this.activateMe("Home");
+        user.getUser();
     }
     activateMe(tab){
         this.tabs = [{'Home' : '', 'Myprofile' : ''}];
         this.tabs[tab] = 'active';
     }
 
+    greetMe(){
+        let index = this.util.getRandomInteger(0, this.greetingArray.length - 1);
+        let message = this.greetingArray[index] +this.user.userObject.username + " !!!";
+        return message;
+    }
+
 }
 
 
-bootstrap(testClass, [HTTP_BINDINGS,EditorService,CurrentBlog,HttpService,EditSettingPanel,
+bootstrap(testClass, [Util, User, HTTP_BINDINGS,EditorService,CurrentBlog,HttpService,EditSettingPanel,
     ROUTER_PROVIDERS,
     FORM_PROVIDERS,
     provide(LocationStrategy, { useClass: HashLocationStrategy })
