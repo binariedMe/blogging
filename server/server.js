@@ -140,7 +140,7 @@ app.get('/logout', function(req, res) {
 });
 
 
-app.get('/test', requireLogin, function(req, res){
+app.get('/test', function(req, res){
     res.sendFile("index.html", {"root" : "../"})
 });
 
@@ -152,17 +152,17 @@ app.get('/getusername', function(req, res){
     if(req.user){
         res.send({ username : req.user.username, loginFlag : true});
     }
-    else res.send({useername : "Guest User", loginFlag : false});
+    else res.send({username : "Guest User", loginFlag : false});
 });
 
-app.get('/getTitles', requireLogin, function(req, res){
+app.get('/getTitles', function(req, res){
     var list = fs.readdirSync('../views/blogs');
     for(var i = 0; i < list.length; i++)
         list[i] = list[i].replace(/-/gi, " ").replace(/.html/gi, "");
     res.send({"list" : list});
 });
 
-app.get('/blog', requireLogin, function(req, res){
+app.get('/blog', function(req, res){
     var blogTitle = req.query.title;
     var title = blogTitle.trim().toLowerCase().replace(/ /ig, "-");
     var content = fs.readFileSync("../views/blogs/" + title + ".html", 'utf8');
