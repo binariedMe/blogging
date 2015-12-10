@@ -14,6 +14,7 @@ import {HttpService} from 'scripts/httpService';
 import {EditSettingPanel} from 'scripts/editSettingPanel';
 import {User} from 'scripts/user';
 import {Util} from 'scripts/util';
+import {SocketTest} from 'scripts/comment-socket';
 
 
 

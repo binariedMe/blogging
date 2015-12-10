@@ -5,7 +5,15 @@ var express = require('express'),
     session = require('client-sessions'),
     bodyP   = require('body-parser'),
     fs      = require('fs'),
+    Server  = require('http').Server,
+    socket  = require('socket.io'),
     app     = express();
+
+
+var server  = Server(app);
+var sio     = socket(server);
+
+
 
 var credentials = null;
 var readCredentials = function(){
@@ -23,13 +31,18 @@ app.use(bodyP.urlencoded({
     extended: true
 }));
 
-
-app.use(session({
+var sessionObject = session({
     cookieName: 'session',
     secret: 'random_string_goes_here',
     duration: 30 * 60 * 1000,
     activeDuration: 5 * 60 * 1000
-}));
+});
+sio.use(function(socket, next){
+    sessionObject(socket.request, socket.request.res, next);
+});
+app.use(sessionObject);
+
+
 app.use(function(req, res, next) {
     if (req.session && req.session.user) {
 
@@ -189,7 +202,14 @@ app.post('/blog', requireLogin, checkAdmin, function(req, res){
 
 
 
+sio.sockets.on('connection', function(socket){
+    console.log(JSON.stringify(socket.request.session));
+    socket.on('chat', function(msg){
+        console.log(msg);
+        sio.emit('chat reply', msg);
+    });
 
+});
 
 
 
@@ -206,7 +226,9 @@ app.post('/blog', requireLogin, checkAdmin, function(req, res){
 
 
 app.use(express.static("../"));
+server.listen(4000);
+/*
 
 app.listen(4000, function(){
     console.log("Your server is up at 4000")
-});
+});*/

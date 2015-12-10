@@ -22,7 +22,6 @@ var User = (function () {
     User.prototype.getUser = function () {
         this.httpService.get('/getusername', null).subscribe(function (data) {
             var response = JSON.parse(data._body);
-            console.log(response);
             // this.userObject.username = response.username;
             //this.userObject.loginFlag = response.loginFlag;
             this.userObject = { username: response.username, loginFlag: response.loginFlag };

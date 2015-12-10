@@ -7,10 +7,10 @@
             <ul class="nav navbar-nav">
                 <li [ng-class]="tabs.Home" (click)="activateMe('Home')"> <a [router-link]="['/Home']">Home</a></li>
                 <li [ng-class]="tabs.Myprofile" (click)="activateMe('Myprofile')"> <a [router-link]="['/Myprofile']">My Profile</a></li>
+                <li> <a [router-link]="['/CommentSocket']">Comment</a></li>
             </ul>
         </div>
         <div class="pull-right">
-            {{user.userObject.loginFlag}}
             <ul class="nav navbar-nav">
                 <li>
                     <span [hidden]="!user.userObject.loginFlag" style="color : green;">{{greetMe()}}&nbsp;&nbsp;&nbsp;&nbsp;<a style="color : red;" href="/logout">Logout</a></span>
@@ -27,15 +27,15 @@
     <edit-setting-panel></edit-setting-panel>
     <br/>
     <div class="row" style="padding: 10px;background-color: #FFF; border-top: 2px solid #808080; height: 100%;">
-            <div class="col-sm-3">
-                <side-bar></side-bar>
-            </div>
-            <div class="col-sm-7">
-                <router-outlet></router-outlet>
-            </div>
-            <div class="col-sm-2">
-<h5 style="height: 100%">Comments : </h5>
-            </div>
+        <div class="col-sm-3">
+            <side-bar></side-bar>
+        </div>
+        <div class="col-sm-7">
+            <router-outlet></router-outlet>
+        </div>
+        <div class="col-sm-2">
+            <h5 style="height: 100%">Comments : </h5>
+        </div>
     </div>
 </div>
 
