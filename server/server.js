@@ -121,7 +121,7 @@ function alreadyLoggedIn (req, res, next) {
     if (!req.user) {
         next();
     } else {
-        res.redirect('/test');
+        res.redirect('/');
     }
 };
 
@@ -136,7 +136,7 @@ app.get('/auth', alreadyLoggedIn, function(req, res){
 });
 app.get('/logout', function(req, res) {
     req.session.reset();
-    res.redirect('/test');
+    res.redirect('/');
 });
 
 
@@ -144,7 +144,7 @@ app.get('/test', function(req, res){
     res.sendFile("index.html", {"root" : "../"})
 });
 
-app.get('/', requireLogin, function(req, res){
+app.get('/', function(req, res){
     res.sendFile("index.html", {"root" : "../"})
 });
 

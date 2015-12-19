@@ -36,7 +36,7 @@ var login = (function () {
             })).subscribe(function (data) {
                 var response = JSON.parse(data._body);
                 if (response.status)
-                    location.pathname = "/test";
+                    location.pathname = "/";
                 else
                     this.loginMessage = response.message;
             }.bind(this));

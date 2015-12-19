@@ -10,7 +10,6 @@
             </ul>
         </div>
         <div class="pull-right">
-            {{user.userObject.loginFlag}}
             <ul class="nav navbar-nav">
                 <li>
                     <span [hidden]="!user.userObject.loginFlag" style="color : green;">{{greetMe()}}&nbsp;&nbsp;&nbsp;&nbsp;<a style="color : red;" href="/logout">Logout</a></span>

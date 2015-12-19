@@ -38,7 +38,7 @@ export class login {
             })).subscribe(function (data) {
                 let response = JSON.parse(data._body);
                 if (response.status)
-                    location.pathname = "/test";
+                    location.pathname = "/";
                 //location.assign('/test/');
                 else this.loginMessage = response.message;
             }.bind(this));
