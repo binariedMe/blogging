@@ -4,16 +4,18 @@
 
 import {Injectable} from 'angular2/core';
 import {HttpService} from 'scripts/httpService';
+import {CommentService} from 'scripts/CommentService';
 
 @Injectable()
 export class CurrentBlog{
 
-    constructor(public httpService:HttpService){
+    constructor(public httpService:HttpService, public commentService : CommentService){
 
     }
     title;
     setTitle(title){
         this.title = title;
+        this.commentService.loadCommentList(title);
     }
     content;
     setContent(data){

@@ -11,7 +11,6 @@ import {HttpService} from 'scripts/httpService';
 export class User {
 
     userObject = {username : "Guest" , loginFlag : true};
-
     constructor(public httpService : HttpService){}
 
     getUser(){

@@ -14,12 +14,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('angular2/core');
 var httpService_1 = require('scripts/httpService');
+var CommentService_1 = require('scripts/CommentService');
 var CurrentBlog = (function () {
-    function CurrentBlog(httpService) {
+    function CurrentBlog(httpService, commentService) {
         this.httpService = httpService;
+        this.commentService = commentService;
     }
     CurrentBlog.prototype.setTitle = function (title) {
         this.title = title;
+        this.commentService.loadCommentList(title);
     };
     CurrentBlog.prototype.setContent = function (data) {
         this.content = data;
@@ -64,10 +67,10 @@ var CurrentBlog = (function () {
     };
     CurrentBlog = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof httpService_1.HttpService !== 'undefined' && httpService_1.HttpService) === 'function' && _a) || Object])
+        __metadata('design:paramtypes', [(typeof (_a = typeof httpService_1.HttpService !== 'undefined' && httpService_1.HttpService) === 'function' && _a) || Object, (typeof (_b = typeof CommentService_1.CommentService !== 'undefined' && CommentService_1.CommentService) === 'function' && _b) || Object])
     ], CurrentBlog);
     return CurrentBlog;
-    var _a;
+    var _a, _b;
 })();
 exports.CurrentBlog = CurrentBlog;
 //# sourceMappingURL=currentBlog.js.map

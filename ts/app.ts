@@ -14,8 +14,9 @@ import {HttpService} from 'scripts/httpService';
 import {EditSettingPanel} from 'scripts/editSettingPanel';
 import {User} from 'scripts/user';
 import {Util} from 'scripts/util';
-import {SocketTest} from 'scripts/comment-socket';
-
+import {SocketFactory} from 'scripts/SocketFactory';
+import {CommentPanel} from 'scripts/CommentPanel';
+import {CommentService} from 'scripts/CommentService';
 
 
 @Component({
@@ -23,7 +24,7 @@ import {SocketTest} from 'scripts/comment-socket';
 })
 
 @View({
-    directives: [ROUTER_DIRECTIVES, NgClass, sidebar, EditSettingPanel],
+    directives: [ROUTER_DIRECTIVES, NgClass, sidebar, EditSettingPanel, CommentPanel],
     templateUrl : "views/app.html"
 })
 
@@ -54,9 +55,18 @@ class testClass{
 }
 
 
-bootstrap(testClass, [Util, User, HTTP_BINDINGS,EditorService,CurrentBlog,HttpService,EditSettingPanel,
+bootstrap(testClass, [
+    Util,
+    User,
+    HTTP_BINDINGS,
+    EditorService,
+    CurrentBlog,
+    HttpService,
+    EditSettingPanel,
     ROUTER_PROVIDERS,
     FORM_PROVIDERS,
+    SocketFactory,
+    CommentService,
     provide(LocationStrategy, { useClass: HashLocationStrategy })
 ]).then(
         success => console.log('App Bootstrapped!'),

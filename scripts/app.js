@@ -25,6 +25,9 @@ var httpService_1 = require('scripts/httpService');
 var editSettingPanel_1 = require('scripts/editSettingPanel');
 var user_1 = require('scripts/user');
 var util_1 = require('scripts/util');
+var SocketFactory_1 = require('scripts/SocketFactory');
+var CommentPanel_1 = require('scripts/CommentPanel');
+var CommentService_1 = require('scripts/CommentService');
 var testClass = (function () {
     function testClass(httpService, user, util) {
         this.httpService = httpService;
@@ -49,7 +52,7 @@ var testClass = (function () {
             selector: "my-app"
         }),
         angular2_1.View({
-            directives: [router_1.ROUTER_DIRECTIVES, angular2_1.NgClass, sidebar_1.sidebar, editSettingPanel_1.EditSettingPanel],
+            directives: [router_1.ROUTER_DIRECTIVES, angular2_1.NgClass, sidebar_1.sidebar, editSettingPanel_1.EditSettingPanel, CommentPanel_1.CommentPanel],
             templateUrl: "views/app.html"
         }),
         router_1.RouteConfig([
@@ -61,9 +64,18 @@ var testClass = (function () {
     return testClass;
     var _a, _b, _c;
 })();
-angular2_1.bootstrap(testClass, [util_1.Util, user_1.User, http_1.HTTP_BINDINGS, editorService_1.EditorService, currentBlog_1.CurrentBlog, httpService_1.HttpService, editSettingPanel_1.EditSettingPanel,
+angular2_1.bootstrap(testClass, [
+    util_1.Util,
+    user_1.User,
+    http_1.HTTP_BINDINGS,
+    editorService_1.EditorService,
+    currentBlog_1.CurrentBlog,
+    httpService_1.HttpService,
+    editSettingPanel_1.EditSettingPanel,
     router_2.ROUTER_PROVIDERS,
     angular2_1.FORM_PROVIDERS,
+    SocketFactory_1.SocketFactory,
+    CommentService_1.CommentService,
     angular2_1.provide(router_2.LocationStrategy, { useClass: router_2.HashLocationStrategy })
 ]).then(function (success) { return console.log('App Bootstrapped!'); }, function (error) { return console.log(error); });
 //# sourceMappingURL=app.js.map
