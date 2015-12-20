@@ -26,15 +26,16 @@
     <edit-setting-panel></edit-setting-panel>
     <br/>
     <div class="row" style="padding: 10px;background-color: #FFF; border-top: 2px solid #808080; height: 100%;">
-            <div class="col-sm-3">
-                <side-bar></side-bar>
-            </div>
-            <div class="col-sm-7">
-                <router-outlet></router-outlet>
-            </div>
-            <div class="col-sm-2">
-<h5 style="height: 100%">Comments : </h5>
-            </div>
+        <div class="col-sm-3">
+            <side-bar></side-bar>
+        </div>
+        <div class="col-sm-9">
+            <router-outlet></router-outlet>
+        </div>
+
+    </div>
+    <div class="row" style="padding: 10px;background-color: #FFF; height: 100%;">
+            <comment-panel></comment-panel>
     </div>
 </div>
 

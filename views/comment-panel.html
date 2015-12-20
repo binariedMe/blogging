@@ -1,0 +1,28 @@
+<h3>Comments :</h3>
+<div style="list-style-type:none">
+    <div *ng-for="#comment of commentService.commentList">
+        <div style="background-color: #dcdcdc">
+            <span class="glyphicon glyphicon-user"></span>
+            <span>
+                {{comment.commentator}}
+            </span>
+            <span class="pull-right">
+                {{comment.time | dateFilter | date : 'dd-MM-yyyy HH:mm:ss'}}
+            </span>
+        </div>
+        <div style="min-height: 70px; padding-bottom: 3px; padding-left: 50px; padding-right: 30px; padding-top: 10px">
+            {{comment.comment}}
+        </div>
+    </div>
+</div>
+<br/>
+<div>
+
+    <form [ng-form-model]="commentForm" (submit)="makeComment()">
+
+        <input ng-control="comment" type="text" placeholder="Your Comment" class="form-control"/>
+        <br/>
+        <button class="pull-right btn btn-primary" type="submit">Comment</button>
+    </form>
+
+</div>
